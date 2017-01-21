@@ -5,4 +5,5 @@
   :license {:name "Apache License version 2.0"
             :url "http://www.apache.org/licenses/"}
 
-  :dependencies [[org.clojure/clojure "1.8.0"]])
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [dk.ative/docjure "1.11.0"]])
