@@ -11,6 +11,7 @@
                  [dk.ative/docjure "1.11.0"]
                  [selmer "1.10.5"]
                  [compojure "1.5.2"]
+                 [ring/ring-codec "1.0.1"]
                  [ring/ring-jetty-adapter "1.5.1"]
                  [integrant "0.2.0"]]
 

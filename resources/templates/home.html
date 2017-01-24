@@ -5,7 +5,7 @@
   <body>
     <ul>
       {% for school in schools %}
-      <li>{{school.name}}</li>
+      <li><a href="/schule/{{school.url-name}}">{{school.name}}</a></li>
       {% endfor %}
     </ul>
   </body>
