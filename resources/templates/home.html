@@ -2,4 +2,11 @@
   <head>
     <title>Schuleinzugsgebiete in Potsdam</title>
   </head>
+  <body>
+    <ul>
+      {% for school in schools %}
+      <li>{{school.name}}</li>
+      {% endfor %}
+    </ul>
+  </body>
 </html>

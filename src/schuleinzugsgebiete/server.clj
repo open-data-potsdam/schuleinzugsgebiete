@@ -1,7 +1,6 @@
 (ns schuleinzugsgebiete.server
-  (:require [schuleinzugsgebiete.data :as data]
+  (:require [schuleinzugsgebiete.pages :as pages]
             [integrant.core :as ig]
-            [selmer.parser :as templates]
             [compojure.core :as c :refer [GET]]
             [ring.adapter.jetty :refer [run-jetty]]
             [ring.util.response :refer [response]]))
@@ -11,12 +10,10 @@
   []
   (c/routes
    (GET "/" []
-     (->> data/schools
-          (templates/render-file "templates/home.html")
+     (->> (pages/home)
           (response)))
    (GET "/schule/:name" [name]
-     (->> (data/find-school-by-name name)
-          (templates/render-file "templates/school.html")
+     (->> (pages/school name)
           (response)))))
 
 (defmethod ig/init-key ::handler
