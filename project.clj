@@ -16,4 +16,6 @@
                  [integrant "0.2.0"]]
 
   :profiles {:dev {:dependencies [[integrant/repl "0.1.0"]]
-                   :source-paths ["dev"]}})
+                   :source-paths ["dev"]}}
+
+  :aliases {"build" ["run" "-m" "schuleinzugsgebiete.generator" "site"]})

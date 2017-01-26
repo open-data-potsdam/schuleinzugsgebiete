@@ -10,3 +10,6 @@ pom.xml.asc
 
 # macOS specific
 .DS_Store
+
+# Default output for generating static pages
+site
