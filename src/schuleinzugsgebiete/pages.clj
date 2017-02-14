@@ -20,7 +20,6 @@
   "Renders the pages of the school with the given name. The name should be url
    encoded."
   [name]
-  (->> (codec/url-decode name)
-       (data/find-school-by-name)
+  (->> (data/find-school-by-name name)
        (assoc {} :school)
        (templates/render-file "templates/school.html")))

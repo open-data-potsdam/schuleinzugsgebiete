@@ -1,5 +1,6 @@
 (ns schuleinzugsgebiete.generator
   (:require [schuleinzugsgebiete.pages :as pages]
+            [schuleinzugsgebiete.data :as data]
             [clojure.java.io :as io])
   (:gen-class))
 
@@ -27,4 +28,7 @@
   [dir]
   (clean dir)
   (let [home (pages/home)]
-    (write-to home (str dir "/home.html"))))
+    (write-to home (str dir "/index.html"))
+    (doseq [{:keys [name]} data/schools
+            :let [school (pages/school name)]]
+      (write-to school (str dir "/schule/" name ".html")))))

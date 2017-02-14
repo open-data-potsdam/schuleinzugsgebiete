@@ -3,7 +3,8 @@
             [integrant.core :as ig]
             [compojure.core :as c :refer [GET]]
             [ring.adapter.jetty :refer [run-jetty]]
-            [ring.util.response :refer [response]]))
+            [ring.util.response :refer [response]]
+            [ring.util.codec :as codec]))
 
 (defn routes
   "Routing for test server."
@@ -12,8 +13,9 @@
    (GET "/" []
      (->> (pages/home)
           (response)))
-   (GET "/schule/:name" [name]
-     (->> (pages/school name)
+   (GET "/schule/:name.html" [name]
+     (->> (codec/url-decode name)
+          (pages/school)
           (response)))))
 
 (defmethod ig/init-key ::handler
