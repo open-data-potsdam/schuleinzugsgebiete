@@ -1,0 +1,21 @@
+{
+  "name": "schuleinzugsgebiete",
+  "version": "0.1.0",
+  "description": "School districts in Potsdam",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/open-data-potsdam/schuleinzugsgebiete.git"
+  },
+  "author": "Jan Ehrhardt <jan.ehrhardt@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/open-data-potsdam/schuleinzugsgebiete/issues"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-bower": "0.0.13",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1"
+  }
+}

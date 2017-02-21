@@ -15,7 +15,12 @@
                  [ring/ring-jetty-adapter "1.5.1"]
                  [integrant "0.2.0"]]
 
+  :plugins [[lein-shell "0.5.0"]]
+
   :profiles {:dev {:dependencies [[integrant/repl "0.1.0"]]
                    :source-paths ["dev"]}}
 
-  :aliases {"build" ["run" "-m" "schuleinzugsgebiete.generator" "site"]})
+  :aliases {"build" ["do"
+                     ["shell" "gulp"]
+                     ["run" "-m" "schuleinzugsgebiete.generator" "site"]
+                     ["shell" "cp" "-R" "resources/public" "site/assets"]]})

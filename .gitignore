@@ -13,3 +13,10 @@ pom.xml.asc
 
 # Default output for generating static pages
 site
+
+# node.js specific
+bower_components
+node_modules
+
+# generated resources
+resources/public

@@ -2,6 +2,7 @@
   (:require [schuleinzugsgebiete.pages :as pages]
             [integrant.core :as ig]
             [compojure.core :as c :refer [GET]]
+            [compojure.route :as route]
             [ring.adapter.jetty :refer [run-jetty]]
             [ring.util.response :refer [response]]
             [ring.util.codec :as codec]))
@@ -16,7 +17,8 @@
    (GET "/schule/:name.html" [name]
      (->> (codec/url-decode name)
           (pages/school)
-          (response)))))
+          (response)))
+   (route/resources "/assets/")))
 
 (defmethod ig/init-key ::handler
   [_ _]
