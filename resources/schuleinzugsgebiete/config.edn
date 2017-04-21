@@ -1,0 +1,12 @@
+{:duct.core/project-ns  schuleinzugsgebiete
+ :duct.core/environment :production
+
+ :duct.core/modules
+ [#ref :duct.module/logging
+  #ref :duct.module.web/api]
+
+ :duct.module/logging {}
+ :duct.module.web/api {}
+
+ :duct.core.web/handler
+ {:endpoints []}}

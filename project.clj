@@ -8,19 +8,30 @@
   :min-lein-version "2.0.0"
 
   :dependencies [[org.clojure/clojure "1.8.0"]
+                 [duct/core "0.1.1"]
+                 [duct/module.logging "0.1.1"]
+                 [duct/module.web "0.1.2"]
                  [dk.ative/docjure "1.11.0"]
-                 [selmer "1.10.5"]
-                 [compojure "1.5.2"]
-                 [ring/ring-codec "1.0.1"]
-                 [ring/ring-jetty-adapter "1.5.1"]
-                 [integrant "0.2.0"]]
+                 [selmer "1.10.7"]]
 
-  :plugins [[lein-shell "0.5.0"]]
+  :plugins [[duct/lein-duct "0.9.0-alpha2"]]
 
-  :profiles {:dev {:dependencies [[integrant/repl "0.1.0"]]
-                   :source-paths ["dev"]}}
+  :main ^:skip-aot schuleinzugsgebiete.main
 
-  :aliases {"build" ["do"
-                     ["shell" "gulp"]
-                     ["run" "-m" "schuleinzugsgebiete.generator" "site"]
-                     ["shell" "cp" "-R" "resources/public" "site/assets"]]})
+  :duct {:config-paths ["resources/schuleinzugsgebiete/config.edn"]}
+
+  :resource-paths ["resources" "target/resources"]
+
+  :prep-tasks     ["javac" "compile" ["duct" "compile"]]
+
+  :profiles
+  {:dev     [:project/dev :profiles/dev]
+   :repl    {:prep-tasks   ^:replace ["javac" "compile"]
+             :repl-options {:init-ns user}}
+   :uberjar {:aot :all}
+   :profiles/dev {}
+   :project/dev  {:source-paths   ["dev/src"]
+                  :resource-paths ["dev/resources"]
+                  :dependencies   [[integrant/repl "0.2.0"]
+                                   [eftest "0.3.0"]
+                                   [kerodon "0.8.0"]]}})

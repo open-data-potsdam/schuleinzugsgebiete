@@ -8,6 +8,12 @@ pom.xml.asc
 /.lein-*
 /.nrepl-port
 
+# duct specific
+/.dir-locals.el
+/profiles.clj
+/dev/resources/local.edn
+/dev/src/local.clj
+
 # macOS specific
 .DS_Store
 
