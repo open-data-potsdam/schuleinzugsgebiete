@@ -9,4 +9,11 @@
  :duct.module.web/api {}
 
  :duct.core.web/handler
- {:endpoints []}}
+ {:endpoints [#ref :schuleinzugsgebiete.endpoint.static-pages/static-pages
+              #ref :schuleinzugsgebiete.endpoint.schools/schools]}
+
+ :schuleinzugsgebiete.endpoint.static-pages/static-pages
+ {}
+
+ :schuleinzugsgebiete.endpoint.schools/schools
+ {}}
