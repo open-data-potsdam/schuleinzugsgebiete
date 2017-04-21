@@ -13,7 +13,22 @@
               #ref :schuleinzugsgebiete.endpoint.schools/schools]}
 
  :schuleinzugsgebiete.endpoint.static-pages/static-pages
- {}
+ {:repo #ref :schuleinzugsgebiete.boundary.schools/xlsx-repo}
 
  :schuleinzugsgebiete.endpoint.schools/schools
- {}}
+ {:repo #ref :schuleinzugsgebiete.boundary.schools/xlsx-repo}
+
+ :schuleinzugsgebiete.component.xlsx/school-districts
+ {:file-name "SchuleinzugsbereicheSeptember2016.xlsx"
+  :sheet "Zusammengefasst"
+  :column-mapping {:A :street :B :area :C :number}
+  :rows-to-drop 2}
+
+ :schuleinzugsgebiete.component.xlsx/schools
+ {:file-name "Grundschulen.xlsx"
+  :sheet "Grundschulen"
+  :column-mapping {:A :name :B :address :C :type :D :number}
+  :rows-to-drop 1}
+
+ :schuleinzugsgebiete.boundary.schools/xlsx-repo
+ {:schools #ref :schuleinzugsgebiete.component.xlsx/schools}}
