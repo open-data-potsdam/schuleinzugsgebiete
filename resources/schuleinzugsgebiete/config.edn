@@ -5,7 +5,6 @@
  [#ref :duct.module/logging]
 
  :duct.module/logging {}
- :duct.module.web/api {}
 
  :duct.core.web/handler
  {:endpoints [#ref :schuleinzugsgebiete.endpoint.static-pages/static-pages
