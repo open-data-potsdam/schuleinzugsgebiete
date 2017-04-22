@@ -8,7 +8,8 @@
             [eftest.runner :as eftest]
             [integrant.core :as ig]
             [integrant.repl :refer [clear halt go init prep reset]]
-            [integrant.repl.state :refer [config system]]))
+            [integrant.repl.state :refer [config system]]
+            [schuleinzugsgebiete.component.site-generator :as gen]))
 
 (defn read-config []
   (duct/read-config
@@ -18,6 +19,11 @@
 
 (defn test []
   (eftest/run-tests (eftest/find-tests "test")))
+
+(defn generate-site
+  []
+  (let [gen (::gen/generator system)]
+    (gen)))
 
 (when (io/resource "local.clj")
   (load "local"))
