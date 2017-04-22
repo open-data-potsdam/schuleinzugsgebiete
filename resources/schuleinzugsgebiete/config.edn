@@ -7,13 +7,13 @@
  :duct.module/logging {}
 
  :duct.core.web/handler
- {:endpoints [#ref :schuleinzugsgebiete.endpoint.static-pages/static-pages
-              #ref :schuleinzugsgebiete.endpoint.schools/schools]}
+ {:endpoints [#ref :schuleinzugsgebiete.endpoint.home/endpoint
+              #ref :schuleinzugsgebiete.endpoint.schools/endpoint]}
 
- :schuleinzugsgebiete.endpoint.static-pages/static-pages
+ :schuleinzugsgebiete.endpoint.home/endpoint
  {:repo #ref :schuleinzugsgebiete.boundary.schools/xlsx-repo}
 
- :schuleinzugsgebiete.endpoint.schools/schools
+ :schuleinzugsgebiete.endpoint.schools/endpoint
  {:repo #ref :schuleinzugsgebiete.boundary.schools/xlsx-repo}
 
  :schuleinzugsgebiete.component.xlsx/school-districts
@@ -33,6 +33,6 @@
 
  :schuleinzugsgebiete.component.site-generator/generator
  {:repo #ref :schuleinzugsgebiete.boundary.schools/xlsx-repo
-  :static-pages-endpoint #ref :schuleinzugsgebiete.endpoint.static-pages/static-pages
-  :schools-endpoint #ref :schuleinzugsgebiete.endpoint.schools/schools
+  :home-endpoint #ref :schuleinzugsgebiete.endpoint.home/endpoint
+  :schools-endpoint #ref :schuleinzugsgebiete.endpoint.schools/endpoint
   :dir "site"}}

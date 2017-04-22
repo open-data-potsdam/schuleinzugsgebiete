@@ -1,4 +1,4 @@
-(ns schuleinzugsgebiete.endpoint.static-pages
+(ns schuleinzugsgebiete.endpoint.home
   (:require [schuleinzugsgebiete.boundary.schools :as schools]
             [compojure.core :refer [GET]]
             [ring.util.response :as response :refer [response]]
@@ -6,14 +6,14 @@
             [selmer.parser :as templates]
             [integrant.core :as ig]))
 
-(defn render-home
+(defn- render-home
   [schools]
   (->> schools
        (map #(assoc % :url-name (codec/url-encode (:name %))))
        (assoc {} :schools)
        (templates/render-file "templates/home.html")))
 
-(defn- static-pages-endpoint
+(defn- home-endpoint
   [{:keys [repo]}]
   (GET "/" []
     (-> (schools/all repo)
@@ -21,6 +21,6 @@
         (response)
         (response/content-type "text/html"))))
 
-(defmethod ig/init-key ::static-pages
+(defmethod ig/init-key ::endpoint
   [_ options]
-  (static-pages-endpoint options))
+  (home-endpoint options))

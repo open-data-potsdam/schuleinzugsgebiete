@@ -20,6 +20,6 @@
          (render-school)
          (response))))
 
-(defmethod ig/init-key ::schools
+(defmethod ig/init-key ::endpoint
   [_ options]
   (schools-endpoint options))

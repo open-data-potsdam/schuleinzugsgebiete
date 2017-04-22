@@ -44,9 +44,9 @@
 (defn- generate-site
   "Runs over all pages of the web app and persists them as HTML files in the
    given directory. Before the directory is cleaned up."
-  [{:keys [repo dir static-pages-endpoint schools-endpoint]}]
+  [{:keys [repo dir home-endpoint schools-endpoint]}]
   (clean dir)
-  (let [ring-handler (c/routes static-pages-endpoint schools-endpoint)
+  (let [ring-handler (c/routes home-endpoint schools-endpoint)
         paths (all-sites repo)]
     (doseq [path paths]
       (generate-and-save path ring-handler dir))))
