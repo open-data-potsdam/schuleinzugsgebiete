@@ -23,3 +23,5 @@
   (load "local"))
 
 (integrant.repl/set-prep! (comp duct/prep read-config))
+
+(go)
