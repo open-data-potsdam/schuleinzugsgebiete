@@ -1,1 +1,4 @@
-{:duct.core/environment :development}
+{:duct.core/environment :development
+ :duct.core/modules
+ [#ref :duct.module/logging
+  #ref :duct.module.web/api]}

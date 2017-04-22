@@ -2,8 +2,7 @@
  :duct.core/environment :production
 
  :duct.core/modules
- [#ref :duct.module/logging
-  #ref :duct.module.web/api]
+ [#ref :duct.module/logging]
 
  :duct.module/logging {}
  :duct.module.web/api {}
@@ -31,4 +30,10 @@
   :rows-to-drop 1}
 
  :schuleinzugsgebiete.boundary.schools/xlsx-repo
- {:schools #ref :schuleinzugsgebiete.component.xlsx/schools}}
+ {:schools #ref :schuleinzugsgebiete.component.xlsx/schools}
+
+ :schuleinzugsgebiete.component.site-generator/generator
+ {:repo #ref :schuleinzugsgebiete.boundary.schools/xlsx-repo
+  :static-pages-endpoint #ref :schuleinzugsgebiete.endpoint.static-pages/static-pages
+  :schools-endpoint #ref :schuleinzugsgebiete.endpoint.schools/schools
+  :dir "site"}}
