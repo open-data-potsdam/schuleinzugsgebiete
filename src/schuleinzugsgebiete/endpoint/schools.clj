@@ -6,7 +6,7 @@
             [selmer.parser :as templates]
             [integrant.core :as ig]))
 
-(defn render-school
+(defn- render
   [school]
   (->> school
        (assoc {} :school)
@@ -17,7 +17,7 @@
   (GET "/schulen/:school-name.html" [school-name]
     (->> (codec/url-decode school-name)
          (schools/by-name repo)
-         (render-school)
+         (render)
          (response))))
 
 (defmethod ig/init-key ::endpoint

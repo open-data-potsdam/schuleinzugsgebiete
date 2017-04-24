@@ -6,7 +6,7 @@
             [selmer.parser :as templates]
             [integrant.core :as ig]))
 
-(defn- render-home
+(defn- render
   [schools]
   (->> schools
        (map #(assoc % :url-name (codec/url-encode (:name %))))
@@ -17,7 +17,7 @@
   [{:keys [repo]}]
   (GET "/" []
     (-> (schools/all repo)
-        (render-home)
+        (render)
         (response)
         (response/content-type "text/html"))))
 
