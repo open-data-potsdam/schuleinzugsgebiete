@@ -28,6 +28,14 @@ gulp.task('copy', () => {
   gulp
     .src('node_modules/jquery/dist/jquery.min.js')
     .pipe(gulp.dest('resources/schuleinzugsgebiete/public/vendor'));
+
+  gulp
+    .src('node_modules/leaflet/dist/leaflet.js')
+    .pipe(gulp.dest('resources/schuleinzugsgebiete/public/vendor'));
+
+  gulp
+    .src('node_modules/leaflet/dist/leaflet.css')
+    .pipe(gulp.dest('resources/schuleinzugsgebiete/public/vendor'));
 });
 
 gulp.task('watch', () => {
