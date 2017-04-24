@@ -16,7 +16,7 @@
 
   :plugins [[duct/lein-duct "0.9.0-alpha2"]]
 
-  :main ^:skip-aot schuleinzugsgebiete.main
+  :main schuleinzugsgebiete.main
 
   :duct {:config-paths ["resources/schuleinzugsgebiete/config.edn"]}
 

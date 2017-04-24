@@ -2,9 +2,11 @@
  :duct.core/environment :production
 
  :duct.core/modules
- [#ref :duct.module/logging]
+ [#ref :duct.module/logging
+  #ref :duct.module.web/site]
 
  :duct.module/logging {}
+ :duct.module.web/site {}
 
  :duct.core.web/handler
  {:endpoints [#ref :schuleinzugsgebiete.endpoint.home/endpoint
