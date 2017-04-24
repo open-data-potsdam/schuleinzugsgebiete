@@ -2,7 +2,7 @@
 School districts in Potsdam.
 
 ## Prerequisites
-You will need [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and the [Leiningen](https://leiningen.org) build tool.
+You will need [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and the [Leiningen](https://leiningen.org) build tool as well as [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com).
 
 ## Usage
 Get the source code
@@ -12,13 +12,18 @@ git clone https://github.com/open-data-potsdam/schuleinzugsgebiete.git
 cd schuleinzugsgebiete
 ```
 
-Build the page
+Build the application
 
 ``` shell
-lein build
+npm install
+lein uberjar
 ```
 
-The generated HTML can be found under `site`. Copy the content of the directory to your web server.
+The whole application can be found in `target/schuleinzugsgebiete.jar`. You can start it via
+
+``` shell
+java -jar target/schuleinzugsgebiete.jar
+```
 
 ## Development
 Start the Clojure REPL
@@ -27,10 +32,10 @@ Start the Clojure REPL
 lein repl
 ```
 
-From the REPL start the development server
+From the REPL start the development mode including the server
 
 ``` clojure
-(go)
+(dev)
 ```
 
 After changing Clojure code reset the REPL
@@ -39,4 +44,4 @@ After changing Clojure code reset the REPL
 (reset)
 ```
 
-Open the page from a browser under [localhost:8080](http://localhost:8080).
+Open the page from a browser under [localhost:3000](http://localhost:3000).
