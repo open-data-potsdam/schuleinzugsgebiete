@@ -3,6 +3,8 @@ const less = require('gulp-less');
 const autoprefixer = require('gulp-autoprefixer');
 const LessAutoprefix = require('less-plugin-autoprefix');
 const autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
+const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
 
 gulp.task('less', () => {
   return gulp
@@ -11,6 +13,15 @@ gulp.task('less', () => {
       plugins: [autoprefix]
     }))
     .pipe(gulp.dest('./resources/schuleinzugsgebiete/public/css'));
+});
+
+gulp.task('babel', () => {
+  return gulp.src('js/app.js')
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(uglify())
+    .pipe(gulp.dest('resources/schuleinzugsgebiete/public/js'));
 });
 
 gulp.task('copy', () => {
