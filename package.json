@@ -20,5 +20,9 @@
     "jquery": "^3.2.1",
     "less-plugin-autoprefix": "^1.5.1",
     "semantic-ui": "^2.2.10"
+  },
+  "scripts": {
+    "postinstall": "gulp",
+    "dev": "gulp watch"
   }
 }

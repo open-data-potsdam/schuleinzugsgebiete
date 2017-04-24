@@ -29,3 +29,10 @@ gulp.task('copy', () => {
     .src('node_modules/jquery/dist/jquery.min.js')
     .pipe(gulp.dest('resources/schuleinzugsgebiete/public/vendor'));
 });
+
+gulp.task('watch', () => {
+  gulp.watch('less/**/*.less', ['less']);
+  gulp.watch('js/**/*.js', ['babel']);
+});
+
+gulp.task('default', ['copy', 'less', 'babel']);

@@ -26,7 +26,13 @@ java -jar target/schuleinzugsgebiete.jar
 ```
 
 ## Development
-Start the Clojure REPL
+Start the frontend development mode
+
+``` shell
+npm run-script watch
+```
+
+In a second terminal start the Clojure REPL
 
 ``` shell
 lein repl
