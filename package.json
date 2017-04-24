@@ -17,6 +17,7 @@
     "gulp-sourcemaps": "^2.4.1"
   },
   "dependencies": {
+    "jquery": "^3.2.1",
     "semantic-ui": "^2.2.10"
   }
 }

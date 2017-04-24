@@ -1,16 +1,8 @@
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Schuleinzugsgebiete in Potsdam</title>
-    <link href="/vendor/semantic.min.css" rel="stylesheet">
-  </head>
-  <body>
-    <ul>
-      {% for school in schools %}
-      <li><a href="/schulen/{{school.url-name}}.html">{{school.name}}</a></li>
-      {% endfor %}
-    </ul>
-    <script src="/vendor/semantic.min.js">
-  </body>
-</html>
+{% extends "templates/layout.html" %}
+{% block content %}
+<ul>
+  {% for school in schools %}
+  <li><a href="/schulen/{{school.url-name}}.html">{{school.name}}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}
