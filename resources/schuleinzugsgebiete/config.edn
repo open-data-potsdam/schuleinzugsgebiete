@@ -31,10 +31,4 @@
   :rows-to-drop 1}
 
  :schuleinzugsgebiete.boundary.schools/xlsx-repo
- {:schools #ref :schuleinzugsgebiete.component.xlsx/schools}
-
- :schuleinzugsgebiete.component.site-generator/generator
- {:repo #ref :schuleinzugsgebiete.boundary.schools/xlsx-repo
-  :home-endpoint #ref :schuleinzugsgebiete.endpoint.home/endpoint
-  :schools-endpoint #ref :schuleinzugsgebiete.endpoint.schools/endpoint
-  :dir "site"}}
+ {:schools #ref :schuleinzugsgebiete.component.xlsx/schools}}
