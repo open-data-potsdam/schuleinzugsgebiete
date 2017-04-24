@@ -1,10 +1,17 @@
 const gulp = require('gulp');
-const sourcemaps = require('gulp-sourcemaps');
+const less = require('gulp-less');
 const autoprefixer = require('gulp-autoprefixer');
+const LessAutoprefix = require('less-plugin-autoprefix');
+const autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
 
-const autoprefixerOptions = {
-  browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
-};
+gulp.task('less', () => {
+  return gulp
+    .src('./less/styles.less')
+    .pipe(less({
+      plugins: [autoprefix]
+    }))
+    .pipe(gulp.dest('./resources/schuleinzugsgebiete/public/css'));
+});
 
 gulp.task('copy', () => {
   gulp
