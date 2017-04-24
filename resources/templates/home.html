@@ -1,12 +1,8 @@
-<html>
-  <head>
-    <title>Schuleinzugsgebiete in Potsdam</title>
-  </head>
-  <body>
-    <ul>
-      {% for school in schools %}
-      <li><a href="/schule/{{school.url-name}}.html">{{school.name}}</a></li>
-      {% endfor %}
-    </ul>
-  </body>
-</html>
+{% extends "templates/layout.html" %}
+{% block content %}
+<ul>
+  {% for school in schools %}
+  <li><a href="/schulen/{{school.url-name}}.html">{{school.name}}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

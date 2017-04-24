@@ -1,5 +1,13 @@
-<html>
-  <head>
-    <title>{{school.name}} | Einzugsgebiet</title>
-  </head>
-</html>
+{% extends "templates/layout.html" %}
+{% block styles %}
+<link rel="stylesheet" href="/vendor/leaflet.css">
+{% endblock %}
+
+{% block content %}
+<h1>{{school.name}}</h1>
+<div id="district-map"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/vendor/leaflet.js"></script>
+{% endblock %}

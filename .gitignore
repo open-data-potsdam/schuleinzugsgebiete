@@ -7,9 +7,23 @@ pom.xml.asc
 *.class
 /.lein-*
 /.nrepl-port
+logs
+
+# duct specific
+/.dir-locals.el
+/profiles.clj
+/dev/resources/local.edn
+/dev/src/local.clj
 
 # macOS specific
 .DS_Store
 
-# Default output for generating static pages
-site
+# node.js specific
+bower_components
+node_modules
+
+# generated resources
+resources/schuleinzugsgebiete/public
+
+# Semantic UI specific
+lib/semantic
