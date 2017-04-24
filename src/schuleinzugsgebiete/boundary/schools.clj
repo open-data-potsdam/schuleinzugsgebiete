@@ -1,4 +1,5 @@
 (ns schuleinzugsgebiete.boundary.schools
+  "Provides a protocol to fetch school data."
   (:require [integrant.core :as ig]))
 
 (defprotocol Schools

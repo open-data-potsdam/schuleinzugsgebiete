@@ -1,4 +1,5 @@
 (ns schuleinzugsgebiete.endpoint.home
+  "Endpoint of the home page. It serves the start page of the application."
   (:require [schuleinzugsgebiete.boundary.schools :as schools]
             [compojure.core :refer [GET]]
             [ring.util.response :as response :refer [response]]

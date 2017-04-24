@@ -1,4 +1,8 @@
 (ns schuleinzugsgebiete.component.xlsx
+  "Loads the data from xlsx files and serves them as Clojure data structures.
+   Instead of loading and parsing the xlsx files everytime a page is rendered,
+   the data is used from memory and the xlsx handling is done only during start
+   up."
   (:require [dk.ative.docjure.spreadsheet :as xls]
             [integrant.core :as ig]))
 

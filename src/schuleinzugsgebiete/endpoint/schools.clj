@@ -1,4 +1,5 @@
 (ns schuleinzugsgebiete.endpoint.schools
+  "Endpoint for schools. It serves the details page for each school."
   (:require [schuleinzugsgebiete.boundary.schools :as schools]
             [compojure.core :refer [GET]]
             [ring.util.response :refer [response]]
