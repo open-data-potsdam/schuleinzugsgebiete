@@ -22,4 +22,7 @@ bower_components
 node_modules
 
 # generated resources
-resources/public
+resources/schuleinzugsgebiete/public/vendor
+
+# Semantic UI specific
+lib/semantic
