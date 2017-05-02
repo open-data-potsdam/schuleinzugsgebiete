@@ -23,7 +23,7 @@
     "semantic-ui": "^2.2.10"
   },
   "scripts": {
-    "postinstall": "gulp",
+    "build": "gulp",
     "dev": "gulp watch"
   }
 }
