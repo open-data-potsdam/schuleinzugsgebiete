@@ -26,6 +26,22 @@ gulp.task('babel', () => {
 
 gulp.task('copy', () => {
   gulp
+    .src('lib/semantic/dist/semantic.min.css')
+    .pipe(gulp.dest('resources/schuleinzugsgebiete/public/vendor'));
+
+  gulp
+    .src('lib/semantic/dist/themes/default/assets/fonts/*')
+    .pipe(gulp.dest('resources/schuleinzugsgebiete/public/vendor/themes/default/assets/fonts'));
+
+  gulp
+    .src('lib/semantic/dist/themes/default/assets/images/*')
+    .pipe(gulp.dest('resources/schuleinzugsgebiete/public/vendor/themes/default/assets/images'));
+
+  gulp
+    .src('lib/semantic/dist/semantic.min.js')
+    .pipe(gulp.dest('resources/schuleinzugsgebiete/public/vendor'));
+
+  gulp
     .src('node_modules/jquery/dist/jquery.min.js')
     .pipe(gulp.dest('resources/schuleinzugsgebiete/public/vendor'));
 
