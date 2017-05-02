@@ -1,0 +1,32 @@
+version: '2'
+services:
+  repl:
+    build:
+      context: .
+      dockerfile: dev/Dockerfile-repl
+    ports:
+      - "3000:3000"
+      - "45380:45380"
+    environment:
+      - LEIN_REPL_PORT=45380
+    volumes:
+      - ./project.clj:/app/project.clj
+      - ./src:/app/src
+      - ./resources:/app/resources
+      - ./dev/src:/app/dev/src
+      - ./dev/resources:/app/dev/resources
+      - ./profiles.clj:/app/profiles.clj
+    command: lein repl :headless
+
+  gulp:
+    build:
+      context: .
+      dockerfile: dev/Dockerfile-gulp
+    volumes:
+      - ./package.json:/app/package.json
+      - ./gulpfile.js:/app/gulpfile.js
+      - ./semantic.json:/app/semantic.json
+      - ./js:/app/js
+      - ./less:/app/less
+      - ./resources/schuleinzugsgebiete/public:/app/resources/schuleinzugsgebiete/public
+    command: sh -c "npm run-script build && npm run-script dev"

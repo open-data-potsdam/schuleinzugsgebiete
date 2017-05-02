@@ -1,0 +1,11 @@
+FROM alpine:3.5
+
+WORKDIR /app
+
+RUN apk add --update nodejs && rm -rf /var/cache/apk/*
+
+ADD package.json /app/package.json
+ADD semantic.json /app/semantic.json
+RUN npm install --unsafe-perm
+
+ADD . /app
