@@ -14,6 +14,8 @@ services:
     volumes:
       - ./package.json:/schuleinzugsgebiete/package.json
       - ./lib:/schuleinzugsgebiete/lib
+      - ./public/css:/schuleinzugsgebiete/public/css
+      - ./public/js:/schuleinzugsgebiete/public/js
     command: npm run-script dev
 
   watch-css:
@@ -22,7 +24,7 @@ services:
     volumes:
       - ./package.json:/schuleinzugsgebiete/package.json
       - ./less:/schuleinzugsgebiete/less
-      - ./resources:/schuleinzugsgebiete/resources
+      - ./public/css:/schuleinzugsgebiete/public/css
     user: root
     command: npm run-script watch-css
 
@@ -32,6 +34,6 @@ services:
     volumes:
       - ./package.json:/schuleinzugsgebiete/package.json
       - ./js:/schuleinzugsgebiete/js
-      - ./resources:/schuleinzugsgebiete/resources
+      - ./public/js:/schuleinzugsgebiete/public/js
     user: root
     command: npm run-script watch-js

@@ -10,7 +10,8 @@ RUN npm install
 
 ADD . /schuleinzugsgebiete
 RUN npm run-script build-css \
-    && npm run-script build-js
+    && npm run-script build-js \
+    && npm run-script copy-vendor-deps
 
 USER schuleinzugsgebiete
 
