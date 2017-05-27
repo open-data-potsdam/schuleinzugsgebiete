@@ -1,0 +1,18 @@
+{% extends "_layout.html" %}
+{% block content %}
+<h1></h1>
+<form class="pa4 black-80" action="strassen">
+  <div class="measure">
+    <input value="{{name}}" placeholder="Gib deine Straße ein …" name="name" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="Suche nach Straße">
+  </div>
+</form>
+<ul class="list pl0 ml0 center mw6 ba b--light-silver br2">
+  {% for street in streets %}
+  {% if loop.last %}
+  <li class="ph3 pv3"><a href="/schulen/{{street.school}}">{{street.name}}</a></li>
+  {% else %}
+  <li class="ph3 pv3 bb b--light-silver"><a href="/schulen/{{street.school}}">{{street.name}}</a></li>
+  {% endif %}
+  {% endfor %}
+</ul>
+{% endblock %}

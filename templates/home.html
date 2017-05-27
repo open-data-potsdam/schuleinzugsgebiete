@@ -1,12 +1,9 @@
 {% extends "_layout.html" %}
 {% block content %}
-<form>
-  <div class="ui fluid category search">
-    <div class="ui icon input">
-      <input class="prompt" type="text" placeholder="Gib deine Straße ein …" name="query">
-      <i class="search icon"></i>
-    </div>
-    <div class="results"></div>
+<h1>Schuleinzugsgebiete in der Stadt Potsdam</h1>
+<form class="pa4 black-80" action="strassen">
+  <div class="measure">
+    <input placeholder="Gib deine Straße ein …" name="name" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="Suche nach Straße">
   </div>
 </form>
 <ul>
