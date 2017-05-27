@@ -15,4 +15,6 @@ RUN npm run-script build-css \
 
 USER schuleinzugsgebiete
 
+ENV NODE_ENV=production
+
 CMD ["npm", "start"]
