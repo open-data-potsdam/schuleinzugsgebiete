@@ -4,20 +4,17 @@ services:
     build:
       context: .
 
-  repl:
+  dev:
     extends:
       service: app
     ports:
-      - "3000:3000"
-      - "45380:45380"
+      - '3000:3000'
     environment:
-      - LEIN_REPL_PORT=45380
+      - PORT=3000
     volumes:
-      - ./project.clj:/schuleinzugsgebiete/project.clj
-      - ./src:/schuleinzugsgebiete/src
-      - ./resources:/schuleinzugsgebiete/resources
-      - ./profiles.clj:/schuleinzugsgebiete/profiles.clj
-    command: lein repl :headless
+      - ./package.json:/schuleinzugsgebiete/package.json
+      - ./lib:/schuleinzugsgebiete/lib
+    command: npm run-script dev
 
   watch-css:
     extends:
