@@ -23,6 +23,7 @@ services:
       - ./package.json:/schuleinzugsgebiete/package.json
       - ./less:/schuleinzugsgebiete/less
       - ./resources:/schuleinzugsgebiete/resources
+    user: root
     command: npm run-script watch-css
 
   watch-js:
@@ -32,4 +33,5 @@ services:
       - ./package.json:/schuleinzugsgebiete/package.json
       - ./js:/schuleinzugsgebiete/js
       - ./resources:/schuleinzugsgebiete/resources
+    user: root
     command: npm run-script watch-js
