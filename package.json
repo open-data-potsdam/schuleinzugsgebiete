@@ -22,7 +22,7 @@
     "watch": "^1.0.2"
   },
   "scripts": {
-    "copy-deps": "cp node_modules/tachyons/css/tachyons.min.css node_modules/jquery/dist/jquery.min.js node_modules/leaflet/dist/leaflet.css node_modules/leaflet/dist/leaflet.js resources/schuleinzugsgebiete/public/vendor/",
+    "postinstall": "mkdir -p resources/schuleinzugsgebiete/public/vendor && cp node_modules/tachyons/css/tachyons.min.css node_modules/jquery/dist/jquery.min.js node_modules/leaflet/dist/leaflet.css node_modules/leaflet/dist/leaflet.js resources/schuleinzugsgebiete/public/vendor/",
     "build-css": "lessc --clean-css less/styles.less resources/schuleinzugsgebiete/public/css/styles.css",
     "watch-css": "watch 'npm run-script build-css' less",
     "build-js": "babel js/app.js --out-file resources/schuleinzugsgebiete/public/js/app.js",

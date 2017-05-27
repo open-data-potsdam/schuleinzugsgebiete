@@ -7,12 +7,10 @@ RUN addgroup -S schuleinzugsgebiete \
     && apk add --no-cache nodejs
 
 ADD ./package.json /schuleinzugsgebiete/package.json
-RUN mkdir -p resources/schuleinzugsgebiete/public/vendor \
-    && npm install --unsafe-perm \
-    && npm run-script copy-deps
 
 ADD ./project.clj /schuleinzugsgebiete/project.clj
 RUN lein deps
+RUN npm install --unsafe-perm
 
 ADD . /schuleinzugsgebiete
 RUN npm run-script build-css \
