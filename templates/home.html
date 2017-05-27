@@ -1,0 +1,17 @@
+{% extends "_layout.html" %}
+{% block content %}
+<form>
+  <div class="ui fluid category search">
+    <div class="ui icon input">
+      <input class="prompt" type="text" placeholder="Gib deine Straße ein …" name="query">
+      <i class="search icon"></i>
+    </div>
+    <div class="results"></div>
+  </div>
+</form>
+<ul>
+  {% for school in schools %}
+  <li><a href="/schulen/{{school.url-name}}.html">{{school.name}}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}
