@@ -1,32 +1,38 @@
 version: '2'
 services:
-  repl:
+  app:
     build:
       context: .
-      dockerfile: dev/Dockerfile-repl
+
+  repl:
+    extends:
+      service: app
     ports:
       - "3000:3000"
       - "45380:45380"
     environment:
       - LEIN_REPL_PORT=45380
     volumes:
-      - ./project.clj:/app/project.clj
-      - ./src:/app/src
-      - ./resources:/app/resources
-      - ./dev/src:/app/dev/src
-      - ./dev/resources:/app/dev/resources
-      - ./profiles.clj:/app/profiles.clj
+      - ./project.clj:/schuleinzugsgebiete/project.clj
+      - ./src:/schuleinzugsgebiete/src
+      - ./resources:/schuleinzugsgebiete/resources
+      - ./profiles.clj:/schuleinzugsgebiete/profiles.clj
     command: lein repl :headless
 
-  gulp:
-    build:
-      context: .
-      dockerfile: dev/Dockerfile-gulp
+  watch-css:
+    extends:
+      service: app
     volumes:
-      - ./package.json:/app/package.json
-      - ./gulpfile.js:/app/gulpfile.js
-      - ./semantic.json:/app/semantic.json
-      - ./js:/app/js
-      - ./less:/app/less
-      - ./resources/schuleinzugsgebiete/public:/app/resources/schuleinzugsgebiete/public
-    command: sh -c "npm run-script build && npm run-script dev"
+      - ./package.json:/schuleinzugsgebiete/package.json
+      - ./less:/schuleinzugsgebiete/less
+      - ./resources:/schuleinzugsgebiete/resources
+    command: npm run-script watch-css
+
+  watch-js:
+    extends:
+      service: app
+    volumes:
+      - ./package.json:/schuleinzugsgebiete/package.json
+      - ./js:/schuleinzugsgebiete/js
+      - ./resources:/schuleinzugsgebiete/resources
+    command: npm run-script watch-js
