@@ -6,6 +6,10 @@
 {% block content %}
 <h1>{{school.name}}</h1>
 <div id="district-map"{% if school.lat and school.lon %} data-position="[{{school.lat | float}},{{school.lon | float}}]"{% endif %}></div>
+<h3>Kontakt</h3>
+<p>{{school.address}}</p>
+<p>Telefon: {{school.phone}}</p>
+<h3>Straßen des Einzugsbereichs</h3>
 <ul>
   {% for street in streets %}
   <li>
