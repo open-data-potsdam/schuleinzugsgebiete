@@ -1,8 +1,0 @@
-FROM clojure:lein-alpine
-
-WORKDIR /app
-
-ADD project.clj /app/project.clj
-RUN lein deps
-
-ADD . /app

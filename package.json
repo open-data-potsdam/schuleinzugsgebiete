@@ -12,18 +12,33 @@
     "url": "https://github.com/open-data-potsdam/schuleinzugsgebiete/issues"
   },
   "dependencies": {
+    "express": "^4.15.3",
+    "nunjucks": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-less": "^3.3.0",
-    "gulp-uglify": "^2.1.2",
     "jquery": "^3.2.1",
     "leaflet": "^1.0.3",
-    "less-plugin-autoprefix": "^1.5.1",
-    "semantic-ui": "^2.2.10"
+    "less": "^2.7.2",
+    "less-plugin-clean-css": "^1.5.1",
+    "supervisor": "^0.12.0",
+    "tachyons": "^4.7.4",
+    "watch": "^1.0.2"
   },
   "scripts": {
-    "build": "gulp",
-    "dev": "gulp watch"
+    "start": "node lib/server.js",
+    "dev": "supervisor --watch lib,templates,data --extensions js,html,json lib/server.js",
+    "copy-vendor-deps": "cp -R node_modules/tachyons/css/tachyons.min.css node_modules/jquery/dist/jquery.min.js node_modules/leaflet/dist/leaflet.css node_modules/leaflet/dist/leaflet.js node_modules/leaflet/dist/images public/vendor",
+    "build-css": "lessc --clean-css less/styles.less public/css/styles.css",
+    "watch-css": "watch 'npm run-script build-css' less",
+    "build-js": "babel js/app.js --out-file public/js/app.js",
+    "watch-js": "babel -w js/app.js --out-file public/js/app.js"
+  },
+  "babel": {
+    "minified": true,
+    "presets": [
+      "es2015"
+    ]
   }
 }

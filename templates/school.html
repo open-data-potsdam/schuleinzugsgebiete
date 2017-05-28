@@ -1,0 +1,25 @@
+{% extends "_layout.html" %}
+{% block styles %}
+<link rel="stylesheet" href="/vendor/leaflet.css">
+{% endblock %}
+
+{% block content %}
+<h1>{{school.name}}</h1>
+<div id="district-map"{% if school.lat and school.lon %} data-position="[{{school.lat | float}},{{school.lon | float}}]"{% endif %}></div>
+<h3>Kontakt</h3>
+<p>{{school.address}}</p>
+<p>Telefon: {{school.phone}}</p>
+<h3>Straßen des Einzugsbereichs</h3>
+<ul>
+  {% for street in streets %}
+  <li>
+    <p>{{street.name}}</p>
+    <p>{{street.houseNumbers}}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+{% block scripts %}
+<script src="/vendor/leaflet.js"></script>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "_layout.html" %}
+{% block content %}
+<h1>Schuleinzugsgebiete in der Stadt Potsdam</h1>
+<form class="pa4 black-80" action="strassen">
+  <div class="measure">
+    <input placeholder="Gib deine Straße ein …" name="name" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="Suche nach Straße">
+  </div>
+</form>
+<ul>
+  {% for school in schools %}
+  <li><a href="/schulen/{{school.schoolId}}">{{school.name}}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

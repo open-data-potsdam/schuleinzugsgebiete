@@ -1,2 +1,6 @@
 target
 node_modules
+docker-compose.yml
+README.md
+LICENSE
+.editorconfig

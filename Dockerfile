@@ -1,17 +1,20 @@
-FROM clojure:lein-alpine
+FROM node:6-alpine
 
-RUN addgroup -S schuleinzugsgebiete && adduser -S -G schuleinzugsgebiete schuleinzugsgebiete
+WORKDIR /schuleinzugsgebiete
 
-WORKDIR /app
+RUN addgroup -S schuleinzugsgebiete \
+    && adduser -S -G schuleinzugsgebiete schuleinzugsgebiete
 
-ADD . /app
+ADD ./package.json /schuleinzugsgebiete/package.json
+RUN npm install
 
-RUN apk add --update nodejs && rm -rf /var/cache/apk/*
-
-RUN npm install --unsafe-perm
-RUN npm run-script build
-RUN lein uberjar
+ADD . /schuleinzugsgebiete
+RUN npm run-script build-css \
+    && npm run-script build-js \
+    && npm run-script copy-vendor-deps
 
 USER schuleinzugsgebiete
 
-CMD ["java", "-jar", "/app/target/schuleinzugsgebiete.jar"]
+ENV NODE_ENV=production
+
+CMD ["npm", "start"]
