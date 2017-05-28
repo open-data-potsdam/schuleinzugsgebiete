@@ -2,7 +2,7 @@
 School districts in Potsdam.
 
 ## Prerequisites
-You will need [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and the [Leiningen](https://leiningen.org) build tool as well as [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com).
+You can install [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com) directly, but the recommended way is to use [Docker Community Edition](https://store.docker.com/search?offering=community&type=edition).
 
 ## Usage
 Get the source code
@@ -12,42 +12,16 @@ git clone https://github.com/open-data-potsdam/schuleinzugsgebiete.git
 cd schuleinzugsgebiete
 ```
 
-Build the application
+Build your environment
 
 ``` shell
-npm install
-lein uberjar
+docker-compose build --pull
 ```
 
-The whole application can be found in `target/schuleinzugsgebiete.jar`. You can start it via
+Run the application in development mode
 
 ``` shell
-java -jar target/schuleinzugsgebiete.jar
+docker-compose up dev watch-css watch-js
 ```
 
-## Development
-Start the frontend development mode
-
-``` shell
-npm run-script watch
-```
-
-In a second terminal start the Clojure REPL
-
-``` shell
-lein repl
-```
-
-From the REPL start the development mode including the server
-
-``` clojure
-(dev)
-```
-
-After changing Clojure code reset the REPL
-
-``` clojure
-(reset)
-```
-
-Open the page from a browser under [localhost:3000](http://localhost:3000).
+Open the page from a browser under [localhost:3000](http://localhost:3000). All changes to files will automatically be applied. Just refresh your browser 😌.
