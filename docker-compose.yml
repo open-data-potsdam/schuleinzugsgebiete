@@ -16,6 +16,7 @@ services:
       - ./package.json:/schuleinzugsgebiete/package.json
       - ./lib:/schuleinzugsgebiete/lib
       - ./templates:/schuleinzugsgebiete/templates
+      - ./data:/schuleinzugsgebiete/data
       - ./public/css:/schuleinzugsgebiete/public/css
       - ./public/js:/schuleinzugsgebiete/public/js
     command: npm run-script dev

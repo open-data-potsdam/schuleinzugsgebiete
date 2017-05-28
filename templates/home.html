@@ -8,7 +8,7 @@
 </form>
 <ul>
   {% for school in schools %}
-  <li><a href="/schulen/{{school.url-name}}.html">{{school.name}}</a></li>
+  <li><a href="/schulen/{{school.schoolId}}">{{school.name}}</a></li>
   {% endfor %}
 </ul>
 {% endblock %}

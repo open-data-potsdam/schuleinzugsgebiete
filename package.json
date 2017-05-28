@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "node lib/server.js",
-    "dev": "supervisor --watch lib,templates lib/server.js",
+    "dev": "supervisor --watch lib,templates,data --extensions js,html,json lib/server.js",
     "copy-vendor-deps": "cp node_modules/tachyons/css/tachyons.min.css node_modules/jquery/dist/jquery.min.js node_modules/leaflet/dist/leaflet.css node_modules/leaflet/dist/leaflet.js public/vendor",
     "build-css": "lessc --clean-css less/styles.less public/css/styles.css",
     "watch-css": "watch 'npm run-script build-css' less",
