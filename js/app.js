@@ -27,7 +27,7 @@ const tileOptions = {
 const mapElement = $('#district-map');
 
 if(mapElement.length) {
-  const districtMap = L.map('district-map');
+  const districtMap = L.map('district-map', {dragging: !L.Browser.mobile});
 
   const positionData = mapElement.attr('data-position');
   if (typeof positionData !== 'undefined') {
