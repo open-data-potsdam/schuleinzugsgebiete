@@ -5,7 +5,7 @@
 
 {% block content %}
 <h1>{{school.name}}</h1>
-<div id="district-map"></div>
+<div id="district-map"{% if school.lat and school.lon %} data-position="[{{school.lat | float}},{{school.lon | float}}]"{% endif %}></div>
 {% endblock %}
 
 {% block scripts %}

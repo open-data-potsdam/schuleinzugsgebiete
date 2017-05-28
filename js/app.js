@@ -24,7 +24,20 @@ const tileOptions = {
   accessToken: 'pk.eyJ1IjoiamVocmhhcmR0IiwiYSI6ImNqMXZ6M2UwbDAwMHAzMnFxYWdtenR1YmkifQ.O2P3qgUpCxbleEq2QU1uqg'
 };
 
-if($('#district-map').length) {
-  const districtMap = L.map('district-map').setView([52.395833, 13.061389], 13);
+const mapElement = $('#district-map');
+
+if(mapElement.length) {
+  const districtMap = L.map('district-map');
+
+  const positionData = mapElement.attr('data-position');
+  if (typeof positionData !== 'undefined') {
+    console.log(positionData);
+    const coordinates = JSON.parse(positionData);
+    districtMap.setView(coordinates, 16);
+    L.marker(coordinates).addTo(districtMap);
+  } else {
+    districtMap.setView([52.395833, 13.061389], 13);
+  }
+
   L.tileLayer(tileUrl, tileOptions).addTo(districtMap);
 }
