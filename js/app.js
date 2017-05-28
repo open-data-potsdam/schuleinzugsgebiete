@@ -31,7 +31,6 @@ if(mapElement.length) {
 
   const positionData = mapElement.attr('data-position');
   if (typeof positionData !== 'undefined') {
-    console.log(positionData);
     const coordinates = JSON.parse(positionData);
     districtMap.setView(coordinates, 16);
     L.marker(coordinates).addTo(districtMap);
