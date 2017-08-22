@@ -25,3 +25,6 @@ docker-compose up dev watch-css watch-js
 ```
 
 Open the page from a browser under [localhost:3000](http://localhost:3000). All changes to files will automatically be applied. Just refresh your browser 😌.
+
+## Update data
+The data is loaded from [data/schools.csv](data/schools.csv). You can directly change the file.
